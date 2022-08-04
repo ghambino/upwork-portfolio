@@ -13,30 +13,33 @@ function Navbar() {
   return (
     <div className="header">
       <div className="nav-logo">
-        <img src={logo} alt="awa-logo" className="awa-logo" />
+        <Link to='/'>
+          <img src={logo} alt="awa-logo" className="awa-logo" />
+        </Link>
         <h2 className="header-name">abdulwahab abbas</h2>
       </div>
       <nav className={menuClicked ? "nav-space active" : "nav-space"}>
         {navTitle.map((title, index) => (
           <Link
             key={index}
-            to={title === "Home" ? "/" : `/${title}`}
+            to={`/${title}`}
             onClick={() => {
               setActiveLink(index);
-              setMenuClicked(false)
+              setMenuClicked(false);
             }}
             className={index === activeLink ? "active link" : "link"}
           >
             {title}
           </Link>
         ))}
-        <button className='intro-contact'>Hire me Today</button>
+        <button className="intro-contact">Hire me Today</button>
       </nav>
       <span className="icon" onClick={() => setMenuClicked(!menuClicked)}>
         {menuClicked ? (
           <FontAwesomeIcon icon={faTimes} className="hamburger" />
-        ): 
-        <FontAwesomeIcon icon={faBars} className="hamburger" />}
+        ) : (
+          <FontAwesomeIcon icon={faBars} className="hamburger" />
+        )}
       </span>
     </div>
   );
