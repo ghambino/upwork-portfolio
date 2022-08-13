@@ -1,5 +1,5 @@
 export const navTitle = [
-    "about",
-    "project",
-    "contact-us"
+    "About",
+    "Project",
+    "Contact-us"
 ];
