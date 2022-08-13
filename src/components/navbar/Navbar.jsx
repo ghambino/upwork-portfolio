@@ -8,12 +8,13 @@ import { navTitle } from "../../utility/nav-title";
 import "./navbar.css";
 
 function Navbar() {
-  const [activeLink, setActiveLink] = useState(0);
+  const [activeLink, setActiveLink] = useState();
   const [menuClicked, setMenuClicked] = useState(false);
+
   return (
     <div className="header">
       <div className="nav-logo">
-        <Link to='/'>
+        <Link to='/' onClick={() => setActiveLink(null)}>
           <img src={logo} alt="awa-logo" className="awa-logo" />
         </Link>
         <h2 className="header-name">abdulwahab abbas</h2>
