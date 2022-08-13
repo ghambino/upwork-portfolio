@@ -5,7 +5,7 @@ function Portfolio() {
   return (
     <>
       <div className="h-[30vh] bg-black flex items-center justify-center">
-        <h2 className="text-[40px] font-bold text-white">
+        <h2 className="text-[5vmax] font-bold text-white">
           Portfolio Projects 🚀
         </h2>
       </div>

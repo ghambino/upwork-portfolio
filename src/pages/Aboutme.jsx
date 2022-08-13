@@ -25,7 +25,7 @@ function Aboutme() {
         textColor={"black"}
         className="flex justify-center border-b-8"
       >
-        <div className="w-[45%] pt-[50px]">
+        <div className="md:w-[45%] pt-[25px] md:pt-[50px]">
           <h2 className="mb-4 text-[20px] uppercase font-bold">A bit about me.</h2>
           <p className="mb-4">
             Young and enthusiastic Frontend Developer eager to contribute to
@@ -40,7 +40,7 @@ function Aboutme() {
             are focused on frontend engineering, backend engineering and web3
             development
           </p>
-          <div className="flex gap-[52px] list-none uppercase">
+          <div className="flex gap-[24px] md:gap-[52px] list-none uppercase">
             <div>
               <h2 className="text-[18px] font-bold mb-2">languages</h2>
               <div className="ml-4">
