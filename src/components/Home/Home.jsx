@@ -37,7 +37,7 @@ function Home() {
             I create Beautiful Websites with High User Retention and amazing
             User Experience
           </p>
-          <div className="flex  flex-col md:flex-row items-center justify-center gap-[34px]">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-[34px]">
             <a href="/assets/abbas-tech-CV.pdf" download={"abbas-tech-CV.pdf"}>
               <button className="intro-contact">check my Resume</button>
             </a>

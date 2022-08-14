@@ -7,16 +7,28 @@ function Contact() {
   const [email, setEmail] = useState("");
   const [category, setCategory] = useState("");
   const [message, setMessage] = useState("");
+  const [emailError, setEmailError] = useState("");
+
+  const emailValidation = (val) => {
+    let pattern =
+      /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+    if (val.trim().length > 0 && pattern.test(val) === false) {
+      setEmailError("invalid email address");
+    } else {
+      setEmailError("");
+    }
+  };
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
 
-    let messageObj = {
-      name,
-      email,
-      category,
-      message,
-    };
+    // let messageObj = {
+    //   name,
+    //   email,
+    //   category,
+    //   message,
+    // };
 
     emailjs
       .sendForm(
@@ -28,7 +40,7 @@ function Contact() {
       .then(
         (result) => {
           console.log(result.text);
-          alert("message sent successfully")
+          alert("message sent successfully");
         },
         (error) => {
           console.log(error.text);
@@ -59,22 +71,30 @@ function Contact() {
                 name="name"
                 value={name}
                 onChange={({ target }) => setName(target.value)}
+                required
                 placeholder="edafee john"
                 className="border-2 border- rounded py-3 pl-6 focus:outline-none "
               />
             </div>
             <div className="flex flex-col gap-[9px]">
-              <label htmlFor="email" className="font-bold text-[18px]">
-                Email
-              </label>
+              <div className="flex items-center justify-between">
+                <label htmlFor="email" className="font-bold text-[18px]">
+                  Email Address
+                </label>
+                <span className="text-red-600">{emailError}</span>
+              </div>
               <input
                 type="email"
                 id="email"
                 name="email"
                 value={email}
-                onChange={({ target }) => setEmail(target.value)}
-                placeholder="alexifrontner@gmail.com"
-                className="border-2 border- rounded py-3 pl-6 focus:outline-none "
+                onChange={({ target }) => {
+                  setEmail(target.value);
+                  emailValidation(target.value);
+                }}
+                required
+                placeholder="alexei@mail.com"
+                className="border-2 border-input-gray rounded py-3 pl-6 focus:outline-none"
               />
             </div>
             <div className="flex flex-col gap-[9px]">
@@ -112,6 +132,7 @@ function Contact() {
                 name="message"
                 placeholder="Brief description of the project and preferred stacks"
                 size="lg"
+                required
                 className="border-2 border-black"
               ></Textarea>
               {/* type=""
@@ -127,20 +148,21 @@ function Contact() {
             className="py-3 px-12 rounded-lg text-white uppercase mx-auto bg-[#0F3D3E] mb-[40px]"
           ></input>
         </form>
-
-        <div className="flex gap-[2rem]">
-          <a
-            href="https://www.linkedin.com/in/abbas-abdulwahab"
-            target={"_blank"}
-          >
-            linkedin
-          </a>
-          <a href="https://github.com/ghambino" target={"_blank"}>
-            Github
-          </a>
-          <a href="abdulwahababbas300@gmail.com" target={"_blank"}>
-            Email
-          </a>
+        <div className="flex items-center justify-center">
+          <div className="flex gap-[2rem]">
+            <a
+              href="https://www.linkedin.com/in/abbas-abdulwahab"
+              target={"_blank"}
+            >
+              linkedin
+            </a>
+            <a href="https://github.com/ghambino" target={"_blank"}>
+              Github
+            </a>
+            <a href="abdulwahababbas300@gmail.com" target={"_blank"}>
+              Email
+            </a>
+          </div>
         </div>
       </section>
     </div>
